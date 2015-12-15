@@ -1,7 +1,7 @@
 ﻿var canvas;
 var context;
-var canvasWidth = 828;
-var canvasHeight = 468;
+var canvasWidth = 1000;
+var canvasHeight = 600;
 var padding = 25;
 var lineWidth = 8;
 var colorPurple = "#cb3594";
@@ -25,7 +25,7 @@ var clickSize = new Array();
 var clickDrag = new Array();
 var paint = false;
 var curColor = colorPurple;
-var curTool = "crayon";
+var curTool = "marker";
 var curSize = "normal";
 var mediumStartX = 18;
 var mediumStartY = 19;
@@ -33,8 +33,8 @@ var mediumImageWidth = 93;
 var mediumImageHeight = 46;
 var drawingAreaX = 111;
 var drawingAreaY = 11;
-var drawingAreaWidth = 828;
-var drawingAreaHeight = 468;
+var drawingAreaWidth = 700;
+var drawingAreaHeight = 400;
 var toolHotspotStartY = 23;
 var toolHotspotHeight = 38;
 var sizeHotspotStartY = 157;
@@ -119,9 +119,10 @@ function loadCanvas() {
                 }
                 else
                 {
-                    if(mouseY < toolHotspotStartY + toolHotspotHeight){
-                        curTool = "crayon";
-                    }else if(mouseY < toolHotspotStartY + toolHotspotHeight * 2){
+                    //if(mouseY < toolHotspotStartY + toolHotspotHeight){
+                    //    curTool = "crayon";
+                    //} else
+                    if (mouseY < toolHotspotStartY + toolHotspotHeight * 2) {
                         curTool = "marker";
                     }else if(mouseY < toolHotspotStartY + toolHotspotHeight * 3){
                         curTool = "eraser";
@@ -192,109 +193,9 @@ function redraw() {
 
     var locX;
     var locY;
-    if (curTool == "crayon") {
-        // Draw the crayon tool background
-        context.drawImage(trajectoryImage, 0, 0, canvasWidth, canvasHeight);
-
-        // Purple
-        locX = (curColor == colorPurple) ? 18 : 52;
-        locY = 19;
-
-        context.beginPath();
-        context.moveTo(locX + 41, locY + 11);
-        context.lineTo(locX + 41, locY + 35);
-        context.lineTo(locX + 29, locY + 35);
-        context.lineTo(locX + 29, locY + 33);
-        context.lineTo(locX + 11, locY + 27);
-        context.lineTo(locX + 11, locY + 19);
-        context.lineTo(locX + 29, locY + 13);
-        context.lineTo(locX + 29, locY + 11);
-        context.lineTo(locX + 41, locY + 11);
-        context.closePath();
-        context.fillStyle = colorPurple;
-        context.fill();
-
-        if (curColor == colorPurple) {
-            context.drawImage(crayonImage, locX, locY, mediumImageWidth, mediumImageHeight);
-        } else {
-            context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, locX, locY, 59, mediumImageHeight);
-        }
-
-        // Green
-        locX = (curColor == colorGreen) ? 18 : 52;
-        locY += 46;
-
-        context.beginPath();
-        context.moveTo(locX + 41, locY + 11);
-        context.lineTo(locX + 41, locY + 35);
-        context.lineTo(locX + 29, locY + 35);
-        context.lineTo(locX + 29, locY + 33);
-        context.lineTo(locX + 11, locY + 27);
-        context.lineTo(locX + 11, locY + 19);
-        context.lineTo(locX + 29, locY + 13);
-        context.lineTo(locX + 29, locY + 11);
-        context.lineTo(locX + 41, locY + 11);
-        context.closePath();
-        context.fillStyle = colorGreen;
-        context.fill();
-
-        if (curColor == colorGreen) {
-            context.drawImage(crayonImage, locX, locY, mediumImageWidth, mediumImageHeight);
-        } else {
-            context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, locX, locY, 59, mediumImageHeight);
-        }
-
-        // Yellow
-        locX = (curColor == colorYellow) ? 18 : 52;
-        locY += 46;
-
-        context.beginPath();
-        context.moveTo(locX + 41, locY + 11);
-        context.lineTo(locX + 41, locY + 35);
-        context.lineTo(locX + 29, locY + 35);
-        context.lineTo(locX + 29, locY + 33);
-        context.lineTo(locX + 11, locY + 27);
-        context.lineTo(locX + 11, locY + 19);
-        context.lineTo(locX + 29, locY + 13);
-        context.lineTo(locX + 29, locY + 11);
-        context.lineTo(locX + 41, locY + 11);
-        context.closePath();
-        context.fillStyle = colorYellow;
-        context.fill();
-
-        if (curColor == colorYellow) {
-            context.drawImage(crayonImage, locX, locY, mediumImageWidth, mediumImageHeight);
-        } else {
-            context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, locX, locY, 59, mediumImageHeight);
-        }
-
-        // Yellow
-        locX = (curColor == colorBrown) ? 18 : 52;
-        locY += 46;
-
-        context.beginPath();
-        context.moveTo(locX + 41, locY + 11);
-        context.lineTo(locX + 41, locY + 35);
-        context.lineTo(locX + 29, locY + 35);
-        context.lineTo(locX + 29, locY + 33);
-        context.lineTo(locX + 11, locY + 27);
-        context.lineTo(locX + 11, locY + 19);
-        context.lineTo(locX + 29, locY + 13);
-        context.lineTo(locX + 29, locY + 11);
-        context.lineTo(locX + 41, locY + 11);
-        context.closePath();
-        context.fillStyle = colorBrown;
-        context.fill();
-
-        if (curColor == colorBrown) {
-            context.drawImage(crayonImage, locX, locY, mediumImageWidth, mediumImageHeight);
-        } else {
-            context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, locX, locY, 59, mediumImageHeight);
-        }
-    }
-    else if (curTool == "marker") {
+    if (curTool == "marker") {
         // Draw the marker tool background
-        context.drawImage(markerBackgroundImage, 0, 0, canvasWidth, canvasHeight);
+        //context.drawImage(markerBackgroundImage, 0, 0, canvasWidth, canvasHeight);
 
         // Purple
         locX = (curColor == colorPurple) ? 18 : 52;
@@ -441,13 +342,9 @@ function redraw() {
     //context.globalCompositeOperation = "source-over";// To erase instead of draw over with white
     context.restore();
 
-    // Overlay a crayon texture (if the current tool is crayon)
-    if (curTool == "crayon") {
-        context.globalAlpha = 0.4; // No IE support
-        context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
-    }
+    
     context.globalAlpha = 1; // No IE support
 
     // Draw the outline image
-    context.drawImage(outlineImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
+    context.drawImage(trajectoryImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
 }
