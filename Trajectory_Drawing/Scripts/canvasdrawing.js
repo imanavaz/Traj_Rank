@@ -122,11 +122,11 @@ function loadCanvas() {
                     //if(mouseY < toolHotspotStartY + toolHotspotHeight){
                     //    curTool = "crayon";
                     //} else
-                    if (mouseY < toolHotspotStartY + toolHotspotHeight * 2) {
+                    //if (mouseY < toolHotspotStartY + toolHotspotHeight * 2) {
                         curTool = "marker";
-                    }else if(mouseY < toolHotspotStartY + toolHotspotHeight * 3){
-                        curTool = "eraser";
-                    }
+                    //}else if(mouseY < toolHotspotStartY + toolHotspotHeight * 3){
+                      //  curTool = "eraser";
+                    //}
                 }
             }
         }
@@ -134,6 +134,8 @@ function loadCanvas() {
         {
             // Mouse click location on drawing area
         }
+
+        curTool = "marker";//////
         paint = true;
         addClick(mouseX, mouseY, false);
         redraw();
@@ -178,6 +180,8 @@ function addClick(x, y, dragging) {
 */
 function clearCanvas() {
     context.clearRect(0, 0, canvasWidth, canvasHeight);
+    // Draw the outline image
+    //context.drawImage(trajectoryImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
 }
 
 
@@ -193,17 +197,17 @@ function redraw() {
 
     var locX;
     var locY;
-    if (curTool == "marker") {
+    //if (curTool == "marker") {
         // Draw the marker tool background
         //context.drawImage(markerBackgroundImage, 0, 0, canvasWidth, canvasHeight);
 
         // Purple
-        locX = (curColor == colorPurple) ? 18 : 52;
-        locY = 19;
+        //locX = (curColor == colorPurple) ? 18 : 52;
+        //locY = 19;
 
-        context.beginPath();
-        context.moveTo(locX + 10, locY + 24);
-        context.lineTo(locX + 10, locY + 24);
+        //context.beginPath();
+        //context.moveTo(locX + 10, locY + 24);
+        /*context.lineTo(locX + 10, locY + 24);
         context.lineTo(locX + 22, locY + 16);
         context.lineTo(locX + 22, locY + 31);
         context.closePath();
@@ -279,7 +283,7 @@ function redraw() {
     } else {
         alert("Error: Current Tool is undefined");
     }
-
+    */
     if (curSize == "small") {
         locX = 467;
     } else if (curSize == "normal") {
@@ -345,6 +349,5 @@ function redraw() {
     
     context.globalAlpha = 1; // No IE support
 
-    // Draw the outline image
-    context.drawImage(trajectoryImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
+    
 }
