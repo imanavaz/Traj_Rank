@@ -78,6 +78,7 @@
     <Content Include="Drawing_Canvas.html" />
     <Content Include="Images\ExperimentMap.png" />
     <Content Include="Scripts\canvasdrawing.js" />
+    <Content Include="Scripts\excanvas.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
