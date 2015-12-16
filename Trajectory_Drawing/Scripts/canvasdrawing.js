@@ -10,6 +10,7 @@ var trajectoryImage = new Image();
 var canvasWidth = 700;
 var canvasHeight = 400;
 var currColor;
+var msgTimer = null;
 
 
 function loadCanvas() {
@@ -75,8 +76,41 @@ function save() {
     //document.getElementById("canvasimg").src = dataURL;
     //document.getElementById("canvasimg").style.display = "inline";
     var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href = image;
+    //window.location.href = image;
+
+    emailImg(image);
 }
+
+function emailImg(img) {
+   
+
+    //$('#email-button').prop('disabled', true);
+    //jQuery('#email-msg').html('');
+
+    clearTimeout(msgTimer);
+
+    $.ajax({
+        type: 'POST',
+        url: 'index.html',
+        data: {
+            email: 'i_avazpour@yahoo.com',
+            image: img,   
+            },
+        success: function (resp) {
+            alert('successfully emailed image!');
+        }//,
+        //complete: function () {
+        //    $('#email-msg').html('Image successfully emailed.');
+        //    //$('#email-button').prop('disabled', false);
+
+        //    msgTimer = setTimeout(function () {
+        //        $('#email-msg').html('');
+        //    }, 2000);
+        //}
+    });
+}
+
+
 
 function findxy(res, e) {
     if (res == 'down') {
