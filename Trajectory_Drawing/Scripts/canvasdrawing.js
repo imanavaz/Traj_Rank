@@ -7,8 +7,8 @@ var prevX = 0,
     currY = 0,
     dot_flag = false;
 var trajectoryImage = new Image();
-var canvasWidth = 1000;
-var canvasHeight = 800;
+var canvasWidth = 700;
+var canvasHeight = 400;
 var currColor;
 
 
@@ -24,9 +24,7 @@ function loadCanvas() {
     }
 
     ctx = canvas.getContext("2d");
-    w = canvas.width;
-    h = canvas.height;
-
+    
     canvas.addEventListener("mousemove", function (e) {
         findxy('move', e)
     }, false);
@@ -40,8 +38,16 @@ function loadCanvas() {
         findxy('out', e)
     }, false);
 
-    trajectoryImage.src = "Images/ExperimentMap.png";
+    loadImage();   
+ 
+}
 
+
+function loadImage() {
+    trajectoryImage.onload = function () {
+        ctx.drawImage(trajectoryImage, 100, 75, 500, 250);
+    };
+    trajectoryImage.src = 'Images/ExperimentMap.png';    
 }
 
 function draw() {
@@ -58,16 +64,18 @@ function draw() {
 function erase() {
     var m = confirm("Want to clear");
     if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        loadImage();
     }
 }
 
 function save() {
-    document.getElementById("canvasimg").style.border = "2px solid";
-    var dataURL = canvas.toDataURL();
-    document.getElementById("canvasimg").src = dataURL;
-    document.getElementById("canvasimg").style.display = "inline";
+    //document.getElementById("canvasimg").style.border = "2px solid";
+    //var dataURL = canvas.toDataURL();
+    //document.getElementById("canvasimg").src = dataURL;
+    //document.getElementById("canvasimg").style.display = "inline";
+    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image;
 }
 
 function findxy(res, e) {
