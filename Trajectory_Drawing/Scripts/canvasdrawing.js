@@ -79,6 +79,7 @@ function save() {
     //window.location.href = image;
 
     emailImg(image);
+    
 }
 
 function emailImg(img) {
@@ -87,26 +88,22 @@ function emailImg(img) {
     //$('#email-button').prop('disabled', true);
     //jQuery('#email-msg').html('');
 
-    clearTimeout(msgTimer);
+    var varData = {
+        "email": 'i.avazpour@gmail.com',
+        "name": 'iman',
+        "subject": 'testing image sent',
+        "text": 'testing'//,
+        //"image": img
+    } //This is your data in JSON form
 
+    
     $.ajax({
-        type: 'POST',
-        url: 'index.html',
-        data: {
-            email: 'i_avazpour@yahoo.com',
-            image: img,   
-            },
-        success: function (resp) {
-            alert('successfully emailed image!');
-        }//,
-        //complete: function () {
-        //    $('#email-msg').html('Image successfully emailed.');
-        //    //$('#email-button').prop('disabled', false);
-
-        //    msgTimer = setTimeout(function () {
-        //        $('#email-msg').html('');
-        //    }, 2000);
-        //}
+        type: "POST",
+        url: 'Scripts/sendPHP.php',
+        data: JSON.stringify(varData), //Notice that I added JSON.stringify
+        success: function () {
+            alert("message sent");
+        }
     });
 }
 
