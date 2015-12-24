@@ -84,7 +84,6 @@
     <Content Include="Images\ExperimentMap.png" />
     <Content Include="Scripts\canvasdrawing.js" />
     <Content Include="Scripts\excanvas.js" />
-    <Content Include="Scripts\jscolor.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

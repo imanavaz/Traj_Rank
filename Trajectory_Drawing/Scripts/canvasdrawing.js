@@ -10,6 +10,7 @@ var trajectoryImage = new Image();
 var canvasWidth = 700;
 var canvasHeight = 400;
 var currColor;
+var currStroke;
 var msgTimer = null;
 
 
@@ -41,6 +42,8 @@ function loadCanvas() {
 
     loadImage();   
  
+    currColor = "black";
+    currStroke = 5;
 }
 
 
@@ -56,7 +59,7 @@ function draw() {
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
     ctx.strokeStyle = currColor;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = currStroke;
     ctx.stroke();
     ctx.closePath();
 }
@@ -76,10 +79,15 @@ function save() {
     //document.getElementById("canvasimg").src = dataURL;
     //document.getElementById("canvasimg").style.display = "inline";
     var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image;
+
+}
+
+function sendImg() {
+    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     //window.location.href = image;
 
     emailImg(image);
-    
 }
 
 function emailImg(img) {
@@ -141,8 +149,38 @@ function findxy(res, e) {
 }
 
 
-function update(picker) {
-    currColor = picker.toHEXString();
+//color button clicks
+function blackbtnClick(){
+    currColor = "black";
+}
+function bluebtnClick(){
+    currColor = "blue";
+}
+function yellowbtnClick(){
+    currColor = "yellow";
+}
+function greenbtnClick(){
+    currColor = "green";
+}
+function whitebtnClick(){
+    currColor = "white";
+}
+function redbtnClick() {
+    currColor = "red";
 }
 
-    
+
+//stroke button clicks
+
+function smallbtnClick() {
+    currStroke = 3;
+}
+function normalbtnClick() {
+    currStroke = 5;
+}
+function largebtnClick() {
+    currStroke = 7;
+}
+function hugebtnClick() {
+    currStroke = 9;
+}

@@ -12,10 +12,71 @@
             font-family:Arial;
 	        font-size:13px;
         }
-        button {
-            margin: 5px;
+        
+        .colorbtn {
+            width:40px;
+            height:25px;
+            margin:3px;
+            border:1px solid black;
         }
-        #submit-button {
+
+        #blackbtn{
+            background:black;
+        }
+        #bluebtn{
+            background:blue;
+        }
+        #yellowbtn{
+            background:yellow;
+        }
+        #greenbtn{
+            background:green;
+        }
+        #whitebtn{
+            background:white;
+        }
+        #redbtn{
+            background:red;
+        }
+        
+        .strokebtn{
+            margin : 5px;
+        }
+
+        #smallbtn {
+            height: 15px;
+            width: 15px;
+            border-radius: 15px;
+            border: 1px solid black;
+            background: black;
+        }
+
+        #largebtn {
+            height: 25px;
+            width: 25px;
+            border-radius: 25px;
+            border: 1px solid black;
+            background: black;
+        }
+       
+        #hugebtn {
+            height: 30px;
+            width: 30px;
+            border-radius: 30px;
+            border: 1px solid black;
+            background: black;
+        }
+       
+        #normalbtn {
+            height: 20px;
+            width: 20px;
+            border-radius: 20px;
+            border: 1px solid black;
+            background: black;
+        }
+
+        #send-button {
+            margin: 10px;
 	        -moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
 	        -webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
 	        box-shadow:inset 0px 1px 0px 0px #9acc85;
@@ -40,7 +101,7 @@
 	        text-decoration:none;
 	        text-shadow:0px 1px 0px #92b879;
         }
-        #submit-button:hover {
+        #send-button:hover {
 	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
 	        background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
 	        background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
@@ -50,12 +111,54 @@
 	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
 	        background-color:#68a54b;
         }
-        #submit-button:active {
+        #send-button:active {
+	        position:relative;
+	        top:1px;
+        }
+
+        #save-button {
+            margin: 10px;
+	        -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	        -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	        box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
+	        background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	        background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	        background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	        background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	        background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
+	        background-color:#3d94f6;
+	        -moz-border-radius:3px;
+	        -webkit-border-radius:3px;
+	        border-radius:3px;
+	        border:1px solid #337fed;
+	        display:inline-block;
+	        cursor:pointer;
+	        color:#ffffff;
+	        font-family:Arial;
+	        font-size:13px;
+	        padding:6px 24px;
+	        text-decoration:none;
+	        text-shadow:0px 1px 0px #1570cd;
+        }
+        #save-button:hover {
+	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+	        background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	        background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	        background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	        background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	        background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+	        background-color:#1e62d0;
+        }
+        #save-button:active {
 	        position:relative;
 	        top:1px;
         }
 
         #clear-button {
+            margin: 10px;
 	        -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	        -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	        box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -95,7 +198,6 @@
 	        top:1px;
         }
 
-
         canvas {
             border:solid;
             border-color: black;
@@ -106,7 +208,7 @@
             width: 700px;
             word-wrap: normal;
         }
-         #control-panel {
+        #control-panel {
             padding-left: 715px;
             margin-top: 10px;
             background-color: #fff;
@@ -114,11 +216,13 @@
             font-family:Arial;
 	        font-size:13px;
         }
+        
+           
+
     </style>
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
     <!--[if lte IE 8]><script type="text/javascript" src="Scripts/excanvas.js"></script><![endif]-->
-    <script type="text/javascript" src="Scripts/jscolor.js"></script>
     <script type="text/javascript" src="Scripts/canvasdrawing.js"></script>
 
 </head>
@@ -133,11 +237,23 @@
     </script>
     
     <div id="control-panel">
-        Color: <button class="jscolor {onFineChange:'update(this)'}" ></button>
+        <b>   Color:</b>
         <br />
-        <button id="submit-button" onclick="save()">Submit Drawing</button>   
-        <br /> 
-        <button id="clear-button" onclick="erase()">Clear Drawing</button>   
+        <button id="blackbtn" class="colorbtn" onclick="blackbtnClick()" ></button>
+        <button id="bluebtn" class="colorbtn" onclick="bluebtnClick()" ></button>
+        <button id="yellowbtn" class="colorbtn" onclick="yellowbtnClick()" ></button>
+        <br />
+        <button id="greenbtn" class="colorbtn" onclick="greenbtnClick()" ></button>
+        <button id="whitebtn" class="colorbtn" onclick="whitebtnClick()" ></button>
+        <button id="redbtn" class="colorbtn" onclick="redbtnClick()" ></button>
+        <br />
+        <br />
+        <b>   Stroke:</b>
+        <br />
+        <button id="smallbtn" class="strokebtn" onclick="smallbtnClick()"></button>
+        <button id="normalbtn" class="strokebtn" onclick="normalbtnClick()"></button>
+        <button id="largebtn" class="strokebtn" onclick="largebtnClick()"></button>
+        <button id="hugebtn" class="strokebtn" onclick="hugebtnClick()"></button>
 
     </div>
     
@@ -150,6 +266,12 @@
         <br />
         <br />
         There is no limitation is use of graphical symbols and colors.
+    </div>
+
+    <div id="buttons-panel">
+        <button id="save-button" onclick="save()">Save Drawing</button>
+        <button id="send-button" onclick="sendImg()">Send Drawing</button>
+        <button id="clear-button" onclick="erase()">Clear Drawing</button>
     </div>
 
 
