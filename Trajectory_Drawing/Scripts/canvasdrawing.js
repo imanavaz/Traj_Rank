@@ -83,37 +83,37 @@ function save() {
 
 }
 
-function sendImg() {
-    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    //window.location.href = image;
+//function sendImg() {
+//    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+//    //window.location.href = image;
 
-    emailImg(image);
-}
+//    emailImg(image);
+//}
 
-function emailImg(img) {
+//function emailImg(img) {
    
 
-    //$('#email-button').prop('disabled', true);
-    //jQuery('#email-msg').html('');
+//    //$('#email-button').prop('disabled', true);
+//    //jQuery('#email-msg').html('');
 
-    var varData = {
-        "email": 'i.avazpour@gmail.com',
-        "name": 'iman',
-        "subject": 'testing image sent',
-        "text": 'testing'//,
-        //"image": img
-    } //This is your data in JSON form
+//    var varData = {
+//        "email": 'i.avazpour@gmail.com',
+//        "name": 'iman',
+//        "subject": 'testing image sent',
+//        "text": 'testing'//,
+//        //"image": img
+//    } //This is your data in JSON form
 
     
-    $.ajax({
-        type: "POST",
-        url: 'Scripts/sendPHP.php',
-        data: JSON.stringify(varData), //Notice that I added JSON.stringify
-        success: function () {
-            alert("message sent");
-        }
-    });
-}
+//    $.ajax({
+//        type: "POST",
+//        url: 'Scripts/sendPHP.php',
+//        data: JSON.stringify(varData), //Notice that I added JSON.stringify
+//        success: function () {
+//            alert("message sent");
+//        }
+//    });
+//}
 
 
 
