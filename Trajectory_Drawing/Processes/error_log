@@ -1,0 +1,2 @@
+[10-Mar-2016 13:12:35 UTC] PHP Fatal error:  Call to a member function isHTML() on a non-object in /home/yatohime/public_html/drawing/Processes/sendImg.php on line 34
+[10-Mar-2016 13:13:15 UTC] PHP Fatal error:  Call to a member function isHTML() on a non-object in /home/yatohime/public_html/drawing/Processes/sendImg.php on line 34

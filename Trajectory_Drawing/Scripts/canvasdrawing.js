@@ -83,15 +83,32 @@ function save() {
 
 }
 
-//function sendImg() {
-//    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-//    //window.location.href = image;
+function sendImg() {
+	var email = prompt("Please enter your email", "");
+    var image = canvas.toDataURL("image/png");
+   //window.location.href = image;
 
-//    emailImg(image);
-//}
+   emailImg(image,email);
+}
 
-//function emailImg(img) {
-   
+function emailImg(img,email) {
+   var to = "/Processes/sendImg.php";
+       var varData = {
+      "email": email,
+      "image": img
+		} //This is your data in JSON form
+
+      $.ajax({
+	       type: "POST",
+	       url: to,
+	       data: { "dataString": JSON.stringify(varData) } , 
+	       success: function () {
+	            alert("message sent");
+	       }
+	   });
+
+ 
+
 
 //    //$('#email-button').prop('disabled', true);
 //    //jQuery('#email-msg').html('');
@@ -113,7 +130,7 @@ function save() {
 //            alert("message sent");
 //        }
 //    });
-//}
+}
 
 
 
